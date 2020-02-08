@@ -1,0 +1,53 @@
+
+Steps to work with mbed online compiler
+-->Connect the stm board to your system
+1.Go to mbed in any browser(chrome,mozilla).
+2.Create a new account and verify it in the email.
+3.Once verified,click on the compiler button in the home page of mbed
+website.
+4.You will find a workspace.
+5.Click on new and select a template of your task.
+6.In order to import a library ,click on import button next
+to new button.Search for the library you want and import it.
+7.Make sure all the libraries all included in your main project folder
+8.Compile the program and if it is succesfull,a file will be downloaded with
+a .bin extension.Copy and paste the file to your stm board drive.
+
+ 
+
+
+
+
+
+1.Program fro blinking led
+#include "mbed.h"
+
+DigitalOut myled(LED1);
+
+int main() {
+    while(1) {
+        myled = 1; // LED is ON
+        wait(0.2); // 200 ms
+        myled = 0; // LED is OFF
+        wait(1.0); // 1 sec
+    }
+}
+
+
+2.Program for LCD
+#include "TextLCD.h"
+
+TextLCD lcd(A0,A1, A3, A2,A4, A5);//RS, RW, D4,D7, D5, D6
+
+int main() {
+   // int a=0;
+    lcd.printf("hello world\n");
+    
+    while(1)
+    { 
+        lcd.locate(0,1);       
+      //  lcd.printf("%d",a);
+        wait(1);
+      //  a++;
+    }        
+}
